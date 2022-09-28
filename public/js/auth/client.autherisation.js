@@ -3,12 +3,12 @@ const messageLog = document.querySelector('#messageLog');
 
 authForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const { mail, password } = event.target;
+  const { email, password } = event.target;
   const response = await fetch('/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      mail: mail.value,
+      email: email.value,
       password: password.value,
     }),
   });

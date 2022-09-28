@@ -74,7 +74,7 @@ authRouter.post('/login', async (req, res) => {
       res.json({ status: 'error', message: 'Неправильный пароль или e-mail' });
       return;
     }
-    req.session.user = user.id;
+    req.session.user_id = user.id;
     res.json({ message: 'ok' });
   } catch (error) {
     res.json({ error: error.message });

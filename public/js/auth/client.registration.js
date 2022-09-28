@@ -6,7 +6,6 @@ registrationForm?.addEventListener('submit', async (event) => {
   const {
     name, email, phone, password, passwordRepeat, secretWord,
   } = event.target;
-  console.log(event.target, '----------------------');
   const response = await fetch('/auth/registration', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
