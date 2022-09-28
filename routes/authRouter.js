@@ -5,14 +5,14 @@ const Login = require('../views/regLog/Login');
 
 const { User } = require('../db/models');
 
-router.get('/', (req, res) => {
+router.get('/registration', (req, res) => {
   if (req.session.user) {
     res.redirect('/');
   }
   res.renderComponent(Registrate, { title: 'Регистрация' });
 });
 
-router.post('/', async (req, res) => {
+router.post('/registration', async (req, res) => {
   const {
     name,
     mail,
@@ -47,11 +47,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/', (req, res) => {
+router.get('/login', (req, res) => {
   res.renderComponent(Login, { title: 'Авторизация' });
 });
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { mail, password } = req.body;
   try {
     const user = await User.findOne({
@@ -70,6 +70,12 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.json({ error: error.message });
   }
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie('user_sid');
+  res.redirect('/');
 });
 
 module.exports = router;

@@ -7,6 +7,7 @@ const path = require('path');
 const sessionConfig = require('./sessionConfig');
 const ssr = require('../middlewares/ssr');
 const getUser = require('../middlewares/getUser');
+const authRouter = require('../routes/authRouter')
 
 const config = (app) => {
   app.use(morgan('dev'));
@@ -17,6 +18,7 @@ const config = (app) => {
   app.use(express.static('public'));
   app.use(getUser);
   app.use(ssr);
+  app.use('/auth', authRouter);
 };
 
 module.exports = config;
