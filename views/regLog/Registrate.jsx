@@ -7,15 +7,15 @@ module.exports = function Registration({ title }) {
       <section className="registration">
         <div className="container">
           <h2 className="form-title title reg">Регистрация</h2>
-          <form action="auth/registration" method="post" className="form registration-form">
+          <form  method="post" className="form registration-form">
             <label className="form-label" htmlFor="reg-name">Введите имя</label>
             <input className="form-input" type="text" name="name" placeholder="Введите имя" id="reg-name" />
 
             <label className="form-label" htmlFor="reg-mail">Введите e-mail</label>
-            <input className="form-input input-mail" required type="email" name="mail" placeholder="mail@mail.com" id="reg-mail" />
+            <input className="form-input input-mail" required type="email" name="email" placeholder="mail@mail.com" id="reg-mail" />
 
             <label className="form-label" htmlFor="reg-tel">Введите телефон</label>
-            <input className="form-input input-tel" required type="tel" name="tel" placeholder="+7(999)1230000" id="reg-tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" />
+            <input className="form-input input-tel" required type="tel" name="phone" placeholder="+7(999)1230000" id="reg-tel" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" />
             <label className="form-label" htmlFor="reg-pass">
               Придумайте пароль
               {' '}
@@ -42,10 +42,12 @@ module.exports = function Registration({ title }) {
               placeholder="Повторите пароль"
               id="reg-pas-rep"
             />
-
+            <label className="form-label" htmlFor="secret-name" />
+            <input className="form-input input-secret" type="text" name="secretWord" placeholder="Знаешь секрет?" id="reg-secret" />
             <button type="submit" className="button">Зарегистрироваться</button>
             <div id="messageReg" className="error" />
           </form>
+          <script defer src="/js/auth/client.registration.js" />
         </div>
       </section>
 

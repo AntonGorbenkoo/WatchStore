@@ -1,32 +1,41 @@
-const router = require('express').Router();
+const authRouter = require('express').Router();
 const bcrypt = require('bcrypt');
 const Registrate = require('../views/regLog/Registrate');
 const Login = require('../views/regLog/Login');
 
 const { User } = require('../db/models');
 
-router.get('/registration', (req, res) => {
+authRouter.get('/registration', (req, res) => {
   if (req.session.user) {
     res.redirect('/');
   }
   res.renderComponent(Registrate, { title: 'Регистрация' });
 });
 
-router.post('/registration', async (req, res) => {
+authRouter.post('/registration', async (req, res) => {
   const {
     name,
-    mail,
+    email,
+    phone,
     password,
     passwordRepeat,
+    secretWord,
   } = req.body;
+  console.log(req.body, '++++++++++++++++++');
 
   try {
-    if (!mail || !name || !password || !passwordRepeat) {
+    const isAdminWord = 'karen';
+    let isAdmin = false;
+    if (secretWord === isAdminWord) {
+      isAdmin = true;
+    }
+    console.log(isAdmin);
+    if (!email || !name || !password || !passwordRepeat || !phone) {
       res.status(200).json({ message: 'Заполните все поля!' });
     }
 
-    const checkPerson = await User.findOne({ where: { mail } });
-    if (mail.indexOf('@') === -1 || mail.indexOf('.') === -1) {
+    const checkPerson = await User.findOne({ where: { email } });
+    if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
       res.status(200).json({ message: 'Введен неккоректный e-mail' });
     } else if (password.length < 7) {
       res.status(200).json({ message: 'Пароль короткий, необходимо минимум 8 символов' });
@@ -35,9 +44,9 @@ router.post('/registration', async (req, res) => {
     } else if (!checkPerson && password.length >= 8 && password === passwordRepeat) {
       const hashedPass = await bcrypt.hash(password, 10);
       const newUser = await User.create({
-        name, mail, password: hashedPass,
+        name, email, phone, password: hashedPass, isAdmin,
       });
-      req.session.user = newUser.id;
+      req.session.user_id = newUser.id;
       res.json({ message: 'ok' });
     } else {
       res.status(409).json({ message: 'Пользователь с таким e-mail уже существует' });
@@ -47,16 +56,16 @@ router.post('/registration', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+authRouter.get('/login', (req, res) => {
   res.renderComponent(Login, { title: 'Авторизация' });
 });
 
-router.post('/login', async (req, res) => {
-  const { mail, password } = req.body;
+authRouter.post('/login', async (req, res) => {
+  const { email, password } = req.body;
   try {
     const user = await User.findOne({
       where: {
-        mail,
+        email,
       },
     });
 
@@ -72,11 +81,10 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/logout', (req, res) => {
+authRouter.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('user_sid');
   res.redirect('/');
 });
 
-module.exports = router;
-
+module.exports = authRouter;

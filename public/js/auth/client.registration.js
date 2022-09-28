@@ -4,16 +4,19 @@ const messageReg = document.querySelector('#messageReg');
 registrationForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const {
-    name, mail, password, passwordRepeat,
+    name, email, phone, password, passwordRepeat, secretWord,
   } = event.target;
+  console.log(event.target, '----------------------');
   const response = await fetch('/auth/registration', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: name.value,
-      mail: mail.value,
+      email: email.value,
+      phone: phone.value,
       password: password.value,
       passwordRepeat: passwordRepeat.value,
+      secretWord: secretWord.value,
     }),
   });
 
