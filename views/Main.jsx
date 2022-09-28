@@ -8,6 +8,11 @@ module.exports = function Main() {
       <Headers />
       <div className="container">
         <div className="carousel">
+          {/* {Array.map((el) => (
+            <div className="carousel__face">
+              <span>{el.title}</span>
+            </div>
+          ))} */}
           <div className="carousel__face">
             <span>This is something</span>
           </div>
