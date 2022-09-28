@@ -13,47 +13,44 @@ module.exports = (sequelize, DataTypes) => {
       Order.belongsTo(User, { foreignKey: 'user_id' });
     }
   }
-  Order.init(
-    {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-      },
-      title: {
-        allowNull: false,
-        type: DataTypes.TEXT,
-      },
-      description: {
-        allowNull: false,
-        type: DataTypes.TEXT,
-      },
-      img: {
-        allowNull: false,
-        type: DataTypes.TEXT,
-      },
-      user_id: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id',
-        },
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
+  Order.init({
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
+    title: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    img: {
+      allowNull: false,
+      type: DataTypes.TEXT,
+    },
+    user_id: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
       },
     },
-    {
-      sequelize,
-      modelName: 'Order',
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
     },
-  );
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
+  }, {
+    sequelize,
+    modelName: 'Order',
+  });
   return Order;
 };
