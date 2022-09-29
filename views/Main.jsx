@@ -1,11 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
-const Headers = require('./Headers');
 
-module.exports = function Main() {
+module.exports = function Main({user}) {
   return (
-    <Layout>
-      <Headers />
+    <Layout user={user}>
       <div className="container">
         <div className="carousel">
           {/* {Array.map((el) => (

@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Headers');
 
-module.exports = function Layout({ children }) {
+module.exports = function Layout({ user, children }) {
   return (
     <html lang="en">
       <head>
@@ -16,7 +16,7 @@ module.exports = function Layout({ children }) {
         />
         <link rel="stylesheet" type="text/css" href="/CSS/navbar.css" />
         <link rel="stylesheet" type="text/css" href="/CSS/carousel.css" />
-        <Navbar />
+        <Navbar user={user} />
         <title>ClockWorkStore</title>
       </head>
       <body>{children}</body>

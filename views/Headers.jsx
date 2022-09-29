@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function Headers() {
+module.exports = function Headers({ user }) {
   return (
     <nav className="navbar navbar-expand-lg fixed-top ">
       <button
@@ -15,36 +15,61 @@ module.exports = function Headers() {
         <span className="navbar-toggler-icon" />
       </button>
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul className="navbar-nav mr-4">
-          <li className="nav-item">
-
-            <a className="nav-link" href="/">
-              Home
-            <a className="nav-link" href="/auth/registration">
-              Registration
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="/auth/login">
-              Login
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              Team
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              Post
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              Contact
-            </a>
-          </li>
-        </ul>
+        {!user ? (
+          <ul className="navbar-nav mr-4">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link " href="/auth/login">
+                Login
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/auth/registration">
+                Registration
+              </a>
+            </li>
+          </ul>
+        ) : user.isAdmin ? (
+          <>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/adminarea">
+                AdminArea
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/logout">
+                Logout
+              </a>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/lk">
+                Personal Account
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/logout">
+                Logout
+              </a>
+            </li>
+          </>
+        )}
       </div>
     </nav>
   );
