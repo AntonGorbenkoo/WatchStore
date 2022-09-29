@@ -21,7 +21,6 @@ authRouter.post('/registration', async (req, res) => {
     passwordRepeat,
     secretWord,
   } = req.body;
-  console.log(req.body, '++++++++++++++++++');
 
   try {
     const isAdminWord = 'karen';
@@ -29,7 +28,6 @@ authRouter.post('/registration', async (req, res) => {
     if (secretWord === isAdminWord) {
       isAdmin = true;
     }
-    console.log(isAdmin);
     if (!email || !name || !password || !passwordRepeat || !phone) {
       res.status(200).json({ message: 'Заполните все поля!' });
     }
