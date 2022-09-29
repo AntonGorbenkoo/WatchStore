@@ -35,6 +35,7 @@ module.exports = function Headers({ user }) {
           </ul>
         ) : user.isAdmin ? (
           <>
+          <ul className="navbar-nav mr-4">
             <li className="nav-item">
               <a className="nav-link" href="/">
                 Home
@@ -50,10 +51,11 @@ module.exports = function Headers({ user }) {
                 Logout
               </a>
             </li>
+            </ul>
           </>
-        ) : (
-          
-           < ul className="navbar-nav mr-4">
+        ) : (    
+          <>      
+           <ul ul className="navbar-nav mr-4">
             <li className="nav-item">
               <a className="nav-link" href="/">
                 Home
@@ -79,7 +81,8 @@ module.exports = function Headers({ user }) {
                 Logout
               </a>
             </li>
-            </ul>          
+            </ul>
+            </>          
         )}
       </div>
     </nav>
