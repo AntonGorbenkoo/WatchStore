@@ -17,8 +17,11 @@ module.exports = function Headers() {
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="navbar-nav mr-4">
           <li className="nav-item">
-            <a className="nav-link" href="/" />
-            Home
+            <a className="nav-link" href="/">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
             <a className="nav-link" href="/auth/registration">
               Registration
             </a>
