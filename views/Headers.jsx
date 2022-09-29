@@ -46,18 +46,20 @@ module.exports = function Headers({ user }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/logout">
+              <a className="nav-link" href="/auth/logout">
                 Logout
               </a>
             </li>
           </>
         ) : (
-          <>
+          
+           < ul className="navbar-nav mr-4">
             <li className="nav-item">
               <a className="nav-link" href="/">
                 Home
               </a>
-            </li>  <li className="nav-item">
+            </li>{' '}
+            <li className="nav-item">
               <a className="nav-link" href="/">
                 Personal Account
               </a>
@@ -73,11 +75,11 @@ module.exports = function Headers({ user }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/logout">
+              <a className="nav-link" href="/auth/logout">
                 Logout
               </a>
             </li>
-          </>
+            </ul>          
         )}
       </div>
     </nav>
