@@ -42,8 +42,8 @@ module.exports = function Headers() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link " href="#">
-              Contact
+            <a className="nav-link " href="/admin">
+              AdminArea
             </a>
           </li>
         </ul>
