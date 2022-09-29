@@ -42,7 +42,7 @@ module.exports = function Headers({ user }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/adminarea">
+              <a className="nav-link" href="/admin">
                 AdminArea
               </a>
             </li>
