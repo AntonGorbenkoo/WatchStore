@@ -16,6 +16,7 @@ module.exports = function Layout({ children }) {
         />
         <link rel="stylesheet" type="text/css" href="/CSS/navbar.css" />
         <link rel="stylesheet" type="text/css" href="/CSS/carousel.css" />
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <Navbar />
         <title>ClockWorkStore</title>
       </head>
