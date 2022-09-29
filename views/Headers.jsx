@@ -32,8 +32,8 @@ module.exports = function Headers() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link " href="#">
-              Team
+            <a className="nav-link " href="/auth/logout">
+              Logout
             </a>
           </li>
           <li className="nav-item">
