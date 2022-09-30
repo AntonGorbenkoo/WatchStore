@@ -63,7 +63,10 @@ module.exports = function Headers({ user }) {
               <a className="nav-link" href="/">
                 Personal Account
               </a>
+
             </li>
+            {' '}
+
             <li className="nav-item">
               <a className="nav-link " href="#">
                 Contact
