@@ -32,7 +32,6 @@ function PersonalAccount({ arrOrders, user }) {
               multiple
             />
             <button type="submit" className="btn btn-outline-success formBtn">Success</button>
-            <script defer src="/js/addItem.js" />
           </form>
         </div>
       </div>

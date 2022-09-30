@@ -12,6 +12,7 @@ h5{
 .container_one{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .userAddContainer {
