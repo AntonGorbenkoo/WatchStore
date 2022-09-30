@@ -2,6 +2,7 @@ const personalRouter = require('express').Router();
 const multer = require('multer');
 const path = require('path');
 const PersonalCabinet = require('../views/PersonalAccount');
+
 const UserCard = require('../views/UserCard');
 const { Order } = require('../db/models');
 const PersonalAccount = require('../views/PersonalAccount');
@@ -17,6 +18,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+const { Order } = require('../db/models');
 personalRouter.get('/', (req, res) => {
   Order.findAll({
     raw: true,

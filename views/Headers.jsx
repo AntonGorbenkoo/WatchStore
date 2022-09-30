@@ -33,8 +33,8 @@ module.exports = function Headers({ user }) {
               </a>
             </li>
           </ul>
-        ) : user.isAdmin ? (
-          <>
+        ) : 
+        user.isAdmin ? (
           <ul className="navbar-nav mr-4">
             <li className="nav-item">
               <a className="nav-link" href="/">
