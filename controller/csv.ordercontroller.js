@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const CsvParser = require('json2csv').Parser;
 const { Order } = require('../db/models');
 

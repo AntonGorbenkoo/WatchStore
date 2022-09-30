@@ -12,7 +12,6 @@ const orderRouter = require('./routes/csv.orderroute');
 
 const personalRouter = require('./routes/personalRouter');
 
-
 const PORT = process.env.PORT ?? 3000;
 const app = express();
 config(app);

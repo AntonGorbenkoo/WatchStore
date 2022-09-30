@@ -1,8 +1,7 @@
 const CsvParser = require('json2csv').Parser;
-const {User} = require('../db/models');
+const { User } = require('../db/models');
 
 const download = (req, res) => {
-
   User.findAll().then((objs) => {
     const users = [];
 
