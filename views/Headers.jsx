@@ -56,16 +56,23 @@ module.exports = function Headers({ user }) {
         ) : (    
           <>      
            <ul ul className="navbar-nav mr-4">
+          </ul>
+        ) : (
+          <ul className="navbar-nav mr-4">
             <li className="nav-item">
               <a className="nav-link" href="/">
                 Home
               </a>
-            </li>{' '}
+            </li>
+            {' '}
             <li className="nav-item">
               <a className="nav-link" href="/">
                 Personal Account
               </a>
+
             </li>
+            {' '}
+
             <li className="nav-item">
               <a className="nav-link " href="#">
                 Contact
@@ -83,6 +90,7 @@ module.exports = function Headers({ user }) {
             </li>
             </ul>
             </>          
+          </ul>
         )}
       </div>
     </nav>
