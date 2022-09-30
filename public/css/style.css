@@ -13,3 +13,14 @@ h5{
     display: flex;
     flex-direction: row;
 }
+
+.userAddContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container_two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
