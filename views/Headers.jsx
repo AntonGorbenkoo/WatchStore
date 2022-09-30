@@ -14,6 +14,7 @@ module.exports = function Headers({ user }) {
       >
         <span className="navbar-toggler-icon" />
       </button>
+      <h3>Luxury watch store</h3>
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         {!user ? (
           <ul className="navbar-nav mr-4">
@@ -33,6 +34,7 @@ module.exports = function Headers({ user }) {
               </a>
             </li>
           </ul>
+<<<<<<< HEAD
         ) : user.isAdmin ? (
           <ul className="navbar-nav mr-4">
             <li className="nav-item">
@@ -85,6 +87,52 @@ module.exports = function Headers({ user }) {
           </ul>
 
         )}
+=======
+        )
+          : user.isAdmin ? (
+            <ul className="navbar-nav mr-4">
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/admin">
+                  AdminArea
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/auth/logout">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav mr-4">
+              <li className="nav-item">
+                <a className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              {' '}
+              <li className="nav-item">
+                <a className="nav-link " href="#">
+                  Contact
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/lk">
+                  Personal Account
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/auth/logout">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          )}
+>>>>>>> dev
       </div>
     </nav>
   );

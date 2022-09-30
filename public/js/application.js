@@ -1,38 +1,11 @@
-const addFormOne = document.querySelector('.addFormOne');
-
-addFormOne.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  // const {
-  //   title, img, descr, method,
-  // } = event.target;
-  // const response = await fetch('/additem', {
-  //   method,
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     title: title.value,
-  //     img: img.value,
-  //     descr: descr.value,
-  //   }),
-  // });
-  const newData = new FormData(event.target);
-  const response = await fetch('/lk', {
-    method: 'POST',
-    body: newData,
-  });
-  const answer = await response.text();
-  console.log(answer);
-  document.querySelector('.container_two').insertAdjacentHTML('beforeend', answer);
-});
-
-const cont = document.querySelector('.container_two');
+const cont = document.querySelector('.container_one');
+const contTwo = document.querySelector('.container_two');
 // const countDiv = document.querySelector('.like_count');
 console.log(cont);
 cont.addEventListener('click', async (event) => {
   if (event.target.className === 'btn btn-danger') {
     console.log(event.target.id);
-    const responce = await fetch(`/lk/${event.target.id}`, {
+    const responce = await fetch(`/admin/${event.target.id}`, {
       method: 'DELETE',
     });
     const answer = await responce.json();
@@ -57,7 +30,7 @@ cont.addEventListener('click', async (event) => {
     const itemId = parent.dataset.id;
     const title = parent.querySelector('h5').textContent;
     const p = parent.querySelector('p').textContent;
-    const response = await fetch('/lk/edit', {
+    const response = await fetch('/admin/edit', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -99,4 +72,14 @@ cont.addEventListener('click', async (event) => {
   //   const likeIn = likeDiv.firstChild;
   //   likeIn.innerHTML = `${answer.likes}`;
   // }
+});
+contTwo.addEventListener('click', async (event) => {
+  if (event.target.className === 'btn btn-danger') {
+    console.log(event.target.id);
+    const response = await fetch(`/admin/${event.target.id}`, {
+      method: 'DELETE',
+    });
+    const answer = await response.json();
+    event.target.parentNode.parentNode.remove();
+  }
 });

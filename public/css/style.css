@@ -1,7 +1,25 @@
+body {
+  background-color: rgba(0, 0, 0, 0.927);
+  /* background-color: #e6a80e; */
+
+}
+
+.navbar {
+  background-color: #e6a80e;
+}
 .addForm{
     width: 500px;
     margin-top: 80px;
+    margin-bottom: 30px;
+    border: 4px double #e6a80e !important;
+    border-radius: 20px;
+
 }
+
+/* .addFormOne { */
+  /* border: 4px double #e6a80e; */
+
+/* } */
 p{
     color: #000;
 }
@@ -12,4 +30,98 @@ h5{
 .container_one{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+.userAddContainer {
+  display: flex;
+  justify-content: center;
+
+}
+
+.container_two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.add_cont{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-outline-success {
+  color: #e6a80e;
+  border-color:#000;  
+}
+
+.btn-outline-success:hover {
+  background-color: #000;
+  border-color:#000;
+}
+.btn-warning {
+  color: white;
+
+}
+.btn-success, .btn-warning, .btn-danger  {
+  background-color: #000;
+  border-color: #000;
+  color: #e6a80e;
+}
+
+.card-body {
+  background-color: #000;
+  color: #e6a80e;
+}
+
+h5 {
+  color: #e6a80e;
+}
+
+p {
+  color: #e6a80e;
+}
+
+label {
+  color: #e6a80e;
+}
+
+.btn:hover {
+  background-color: #e6a80e;
+  color: #000;
+}
+
+.registration-form {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    
+}
+
+.auth-form {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input {
+  width: 30vw;
+}
+
+button {
+  background-color: #e6a80e;
+}
+
+h2 {
+  color: #e6a80e;
+}
+
+hr {
+  /* color: #e6a80e; */
+  border: 7px solid #e6a80e;
+}
+

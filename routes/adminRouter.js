@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const AdminCabinet = require('../views/AdminCabinet');
 const AdminCard = require('../views/AdminCard');
-const { Watch } = require('../db/models');
+const { Watch, Order } = require('../db/models');
 
 const imagePath = path.join(process.env.PWD, 'public/images');
 const storage = multer.diskStorage({
@@ -16,18 +16,37 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-adminRouter.get('/', (req, res) => {
+adminRouter.get('/', async (req, res) => {
   // if (!res.locals.user.is_Admin) {
   //   res.redirect('/');
   // } else {
-  Watch.findAll({
+  const watch = await Watch.findAll({
+    raw: true,
+  });
+  const order = await Order.findAll({
+    raw: true,
+  });
+
+  res.renderComponent(AdminCabinet, { watch, order });
+  // Watch.findAll({
+  //   raw: true,
+  // })
+
+  //   .then((arrItem) => {
+  //     res.renderComponent(AdminCabinet, { arrItem });
+  //   })
+  // .catch((err) => res.status(500).send(`Error:${err}`));
+  // }
+});
+
+adminRouter.get('/', (req, res) => {
+  Order.findAll({
     raw: true,
   })
-    .then((arrItem) => {
-      res.renderComponent(AdminCabinet, { arrItem });
+    .then((arrOrders) => {
+      res.renderComponent(PersonalCabinet, { arrOrders });
     })
     .catch((err) => res.status(500).send(`Error:${err}`));
-  // }
 });
 
 adminRouter.post('/', upload.array('image'), async (req, res) => {
@@ -49,5 +68,41 @@ adminRouter.post('/', upload.array('image'), async (req, res) => {
   } catch (error) {
     res.send(error.message);
   }
+});
+// del watch
+adminRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  await Watch.destroy({
+    raw: true,
+    where: {
+      id,
+    },
+
+  });
+  await Order.destroy({
+    raw: true,
+    where: {
+      id,
+    },
+  });
+  res.json({ deleted: true });
+});
+
+// put
+adminRouter.put('/edit', async (req, res) => {
+  const { id, title, p } = req.body;
+  await Watch.update(
+    {
+      title,
+      type: p,
+    },
+    {
+      where: {
+        id,
+      },
+      raw: true,
+    },
+    res.send('updated'),
+  );
 });
 module.exports = adminRouter;
