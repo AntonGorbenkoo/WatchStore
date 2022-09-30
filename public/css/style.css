@@ -1,3 +1,15 @@
 .addForm{
     width: 500px;
+    margin-top: 80px;
+}
+p{
+    color: #000;
+}
+h5{
+    color: #000;
+}
+
+.container_one{
+    display: flex;
+    flex-direction: row;
 }

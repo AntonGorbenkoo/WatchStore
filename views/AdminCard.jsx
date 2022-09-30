@@ -1,6 +1,8 @@
 const React = require('react');
 
 function AdminCard({ user, oneCard }) {
+  console.log(oneCard, '@@@@@');
+  console.log(oneCard.title, '%%%%%%%%');
   return (
     <div className="card admin-card" style={{ width: '18rem' }} data-id={oneCard.id}>
       <img src={`/images/${oneCard.img}`} className="card-img-top" alt="..." />
@@ -10,7 +12,10 @@ function AdminCard({ user, oneCard }) {
           {oneCard.title}
         </h5>
         <p className="card-text">
-          {oneCard.type}
+          {oneCard.description}
+        </p>
+        <p className="card-text">
+          {oneCard.price}
         </p>
       </div>
       <div className="card-body btnList">
