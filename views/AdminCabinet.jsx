@@ -15,6 +15,10 @@ function AdminC({ arrItem, user }) {
             <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
             <input type="text" className="form-control" name="title" />
           </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
+            <input type="text" className="form-control" name="descr" />
+          </div>
           {/* <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Image</label>
           <input type="text" className="form-control" name="img" />
@@ -27,8 +31,8 @@ function AdminC({ arrItem, user }) {
             multiple
           />
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Description</label>
-            <input type="text" className="form-control" name="descr" />
+            <label htmlFor="exampleInputEmail1" className="form-label">Price</label>
+            <input type="text" className="form-control" name="price" />
           </div>
           <button type="submit" className="btn btn-outline-success formBtn">Success</button>
           <script defer src="/js/addItem.js" />
@@ -36,10 +40,10 @@ function AdminC({ arrItem, user }) {
       </div>
       <h3>Privet</h3>
       <label>my container</label>
-      <section className="container">
+      <section className="container_one">
         {arrItem.map((card) => <AdminCard key={card.id} oneCard={card} user={user} />)}
       </section>
-      <script defer src="/js/application.js" />
+      <script defer src="/js/additem.js" />
     </Layout>
   );
 }
