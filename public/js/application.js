@@ -76,10 +76,10 @@ cont.addEventListener('click', async (event) => {
 contTwo.addEventListener('click', async (event) => {
   if (event.target.className === 'btn btn-danger') {
     console.log(event.target.id);
-    const responce = await fetch(`/admin/${event.target.id}`, {
+    const response = await fetch(`/admin/${event.target.id}`, {
       method: 'DELETE',
     });
-    const answer = await responce.json();
+    const answer = await response.json();
     event.target.parentNode.parentNode.remove();
   }
 });

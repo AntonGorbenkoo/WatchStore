@@ -72,18 +72,14 @@ adminRouter.post('/', upload.array('image'), async (req, res) => {
 // del watch
 adminRouter.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  const delItem = await Watch.destroy({
+  await Watch.destroy({
     raw: true,
     where: {
       id,
     },
-  });
-  res.json({ deleted: true });
-});
 
-adminRouter.delete('/:id', async (req, res) => {
-  const { id } = req.params;
-  const delOrder = await Order.destroy({
+  });
+  await Order.destroy({
     raw: true,
     where: {
       id,
