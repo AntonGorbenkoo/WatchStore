@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 const AdminCard = require('./AdminCard');
+const UserCard = require('./UserCard');
 
-function AdminC({ arrItem, user }) {
-  console.log(arrItem);
+function AdminC({ watch, user, order }) {
   return (
     <Layout title="admin cabinet" user={user}>
       <div className="add_cont">
@@ -41,9 +41,15 @@ function AdminC({ arrItem, user }) {
         </div>
       </div>
       <h3>Privet</h3>
-      <label>my container</label>
+      <label>Edit main page</label>
       <section className="container_one">
-        {arrItem.map((card) => <AdminCard key={card.id} oneCard={card} user={user} />)}
+        {watch.map((card) => <AdminCard key={card.id} oneCard={card} user={user} />)}
+      </section>
+
+      <h3>Privet</h3>
+      <label>Orders from clients</label>
+      <section className="container_two">
+        {order.map((card) => <UserCard key={card.id} oneCard={card} user={user} />)}
       </section>
       <form action="/download" method="get">
         <button type="submit">Скачать данные</button>
