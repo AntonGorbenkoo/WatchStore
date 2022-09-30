@@ -1,4 +1,5 @@
 const cont = document.querySelector('.container_one');
+const contTwo = document.querySelector('.container_two');
 // const countDiv = document.querySelector('.like_count');
 console.log(cont);
 cont.addEventListener('click', async (event) => {
@@ -71,4 +72,14 @@ cont.addEventListener('click', async (event) => {
   //   const likeIn = likeDiv.firstChild;
   //   likeIn.innerHTML = `${answer.likes}`;
   // }
+});
+contTwo.addEventListener('click', async (event) => {
+  if (event.target.className === 'btn btn-danger') {
+    console.log(event.target.id);
+    const responce = await fetch(`/admin/${event.target.id}`, {
+      method: 'DELETE',
+    });
+    const answer = await responce.json();
+    event.target.parentNode.parentNode.remove();
+  }
 });
