@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-const { Order } = require('../db/models');
 personalRouter.get('/', (req, res) => {
   Order.findAll({
     raw: true,
@@ -40,12 +39,40 @@ personalRouter.post('/', upload.array('image'), async (req, res) => {
     const oneCard = await Order.create({
       title, description: descr, img: imgStr, user_id: res.locals.user.id,
     });
-    // console.log(newItem.img);
+    console.log(oneCard, '++');
     // res.send('ok');
-    res.renderComponent(PersonalAccount, { oneCard }, { doctype: false });
+    res.renderComponent(UserCard, { oneCard }, { doctype: false });
   } catch (error) {
     res.send(error.message);
   }
+});
+personalRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const delItem = await Order.destroy({
+    raw: true,
+    where: {
+      id,
+    },
+  });
+  res.json({ deleted: true });
+});
+
+// put
+personalRouter.put('/edit', async (req, res) => {
+  const { id, title, p } = req.body;
+  await Order.update(
+    {
+      title,
+      type: p,
+    },
+    {
+      where: {
+        id,
+      },
+      raw: true,
+    },
+    res.send('updated'),
+  );
 });
 
 module.exports = personalRouter;
