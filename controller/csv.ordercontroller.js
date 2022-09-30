@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 const CsvParser = require('json2csv').Parser;
 const { Order } = require('../db/models');
 
@@ -15,9 +14,10 @@ const download = (req, res) => {
       });
     });
 
-    const csvFields = ['id, title, description, img, user_id, createdAt, updatedAt'];
+    const csvFields = ['id', 'title', 'description', 'img', 'user_id', 'createdAt', 'updatedAt'];
     const csvParser = new CsvParser({ csvFields });
     const csvData = csvParser.parse(orders);
+
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', 'attachment; filename=orders.csv');
 

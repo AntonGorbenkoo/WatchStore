@@ -43,7 +43,7 @@ module.exports = function Registration({ title }) {
               id="reg-pas-rep"
             />
             <label className="form-label" htmlFor="secret-name" />
-            <input className="form-input input-secret" type="text" name="secretWord" placeholder="Знаешь секрет?" id="reg-secret" />
+            <input className="form-input input-secret" type="password" name="secretWord" placeholder="Знаешь секрет?" id="reg-secret" />
             <button type="submit" className="button">Зарегистрироваться</button>
             <div id="messageReg" className="error" />
           </form>

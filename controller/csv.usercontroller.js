@@ -17,7 +17,6 @@ const download = (req, res) => {
     const csvFields = ['id', 'email', 'phone', 'createdAt', 'updatedAt'];
     const csvParser = new CsvParser({ csvFields });
     const csvData = csvParser.parse(users);
-    console.log(csvData);
 
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', 'attachment; filename=users.csv');
