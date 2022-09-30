@@ -43,8 +43,11 @@ function AdminC({ arrItem, user }) {
       <section className="container_one">
         {arrItem.map((card) => <AdminCard key={card.id} oneCard={card} user={user} />)}
       </section>
-      <form action="/download" method="get">
-        <button type="submit">Скачать данные</button>
+      <form action="/downloadUser" method="get">
+        <button type="submit">Скачать данные пользователей</button>
+      </form>
+      <form action="/downloadOrders" method="get">
+        <button type="submit">Скачать данные о заказах</button>
       </form>
       <script defer src="/js/application.js" />
       <script defer src="/js/additem.js" />
