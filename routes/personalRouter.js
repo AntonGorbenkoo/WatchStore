@@ -22,6 +22,7 @@ personalRouter.get('/', (req, res) => {
   Order.findAll({
     raw: true,
   })
+    .then((allOrders) => allOrders.filter((order) => order.user_id === res.locals.user.id))
     .then((arrOrders) => {
       res.renderComponent(PersonalCabinet, { arrOrders });
     })
