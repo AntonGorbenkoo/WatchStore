@@ -35,8 +35,8 @@ function PersonalAccount({ arrOrders, user }) {
           </form>
         </div>
       </div>
-      <h3>Privet</h3>
-      <label>my container</label>
+      <hr />
+      <h5>My orders</h5>
       <section className="container_two">
         {arrOrders.map((card) => <UserCard key={card.id} oneCard={card} user={user} />)}
       </section>

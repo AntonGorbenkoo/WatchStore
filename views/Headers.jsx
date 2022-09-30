@@ -14,6 +14,7 @@ module.exports = function Headers({ user }) {
       >
         <span className="navbar-toggler-icon" />
       </button>
+      <h3>Luxury watch store</h3>
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         {!user ? (
           <ul className="navbar-nav mr-4">
