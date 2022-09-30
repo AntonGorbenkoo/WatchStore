@@ -1,7 +1,4 @@
-const { Parser } = require('json2csv');
-const db = require('../db/models');
-
-// const User = db.users;
+const CsvParser = require('json2csv').Parser;
 const { User } = require('../db/models');
 
 const download = (req, res) => {
@@ -10,15 +7,15 @@ const download = (req, res) => {
 
     objs.forEach((obj) => {
       const {
-        id, email, createAt, updateAt,
+        id, email, phone, createdAt, updatedAt,
       } = obj;
       users.push({
-        id, email, createAt, updateAt,
+        id, email, phone, createdAt, updatedAt,
       });
     });
 
-    const csvFields = ['id', 'email', 'createAt', 'updateAt'];
-    const csvParser = new Parser({ csvFields });
+    const csvFields = ['id', 'email', 'phone', 'createdAt', 'updatedAt'];
+    const csvParser = new CsvParser({ csvFields });
     const csvData = csvParser.parse(users);
 
     res.setHeader('Content-Type', 'text/csv');
