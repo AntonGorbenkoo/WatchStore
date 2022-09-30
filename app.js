@@ -20,8 +20,8 @@ app.use('/', mainRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
 
-app.use('/downloaduser', userRouter);
-app.use('/downloadorder', orderRouter);
+app.use('/downloadUser', userRouter);
+app.use('/downloadOrder', orderRouter);
 
 app.use('/lk', personalRouter);
 
