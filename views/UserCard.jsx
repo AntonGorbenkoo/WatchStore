@@ -1,7 +1,6 @@
 const React = require('react');
 
 function UserCard({ user, oneCard }) {
-
   return (
     <div className="card user-card" style={{ width: '18rem' }} data-id={oneCard.id}>
       <img src={`/images/${oneCard.img}`} className="card-img-top" alt="..." />
@@ -15,9 +14,15 @@ function UserCard({ user, oneCard }) {
         </p>
       </div>
       <div className="card-body btnList">
-        <button type="button" className="btn btn-success">edit</button>
-        <button type="button" className="btn btn-warning">save</button>
-        <button type="button" className="btn btn-danger" id={oneCard.id}>delete</button>
+        {user.isAdmin ? (
+          <button type="button" className="btn btn-danger" id={oneCard.id}>delete</button>
+        ) : (
+          <>
+            <button type="button" className="btn btn-success">edit</button>
+            <button type="button" className="btn btn-warning">save</button>
+            <button type="button" className="btn btn-danger" id={oneCard.id}>delete</button>
+          </>
+        )}
       </div>
     </div>
   );
