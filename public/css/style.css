@@ -12,7 +12,18 @@ h5{
 .container_one{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+}
+
+.userAddContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container_two {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
 }
 .add_cont{
     display: flex;
