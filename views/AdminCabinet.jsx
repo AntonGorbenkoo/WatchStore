@@ -7,7 +7,7 @@ function AdminC({ watch, user, order }) {
   return (
     <Layout title="admin cabinet" user={user}>
       <div className="add_cont">
-        <div className="addForm">
+        <div className="addFormAdmin">
           <h5>
             Add new item
           </h5>
@@ -40,19 +40,19 @@ function AdminC({ watch, user, order }) {
           </form>
         </div>
       </div>
-      <h3>Privet</h3>
-      <label>Edit main page</label>
+      <hr />
+
+      <h5>Our products</h5>
       <section className="container_one">
         {watch.map((card) => <AdminCard key={card.id} oneCard={card} user={user} />)}
       </section>
-
-      <h3>Privet</h3>
-      <label>Orders from clients</label>
+      <hr />
+      <h5>Orders from clients</h5>
       <section className="container_two">
         {order.map((card) => <UserCard key={card.id} oneCard={card} user={user} />)}
       </section>
       <form action="/download" method="get">
-        <button type="submit">Скачать данные</button>
+        <button type="submit">Download data</button>
       </form>
       <script defer src="/js/application.js" />
       <script defer src="/js/additem.js" />
