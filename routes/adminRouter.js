@@ -50,4 +50,33 @@ adminRouter.post('/', upload.array('image'), async (req, res) => {
     res.send(error.message);
   }
 });
+
+adminRouter.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const delItem = await Watch.destroy({
+    raw: true,
+    where: {
+      id,
+    },
+  });
+  res.json({ deleted: true });
+});
+
+// put
+adminRouter.put('/edit', async (req, res) => {
+  const { id, title, p } = req.body;
+  await Watch.update(
+    {
+      title,
+      type: p,
+    },
+    {
+      where: {
+        id,
+      },
+      raw: true,
+    },
+    res.send('updated'),
+  );
+});
 module.exports = adminRouter;
