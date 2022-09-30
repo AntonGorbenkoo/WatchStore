@@ -7,7 +7,8 @@ const mainRouter = require('./routes/mainRouter');
 const authRouter = require('./routes/authRouter');
 const adminRouter = require('./routes/adminRouter');
 
-const initRouter = require('./routes/csv.route');
+const orderRouter = require('./routes/csv.orderroute');
+const userRouter = require('./routes/csv.userroute')
 
 const personalRouter = require('./routes/personalRouter');
 
@@ -19,7 +20,8 @@ app.use('/', mainRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
 
-app.use('/download', initRouter);
+app.use('/downloaduser', userRouter);
+app.use('/downloadorder', orderRouter);
 
 app.use('/lk', personalRouter);
 

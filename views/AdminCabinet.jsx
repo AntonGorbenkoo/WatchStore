@@ -51,8 +51,11 @@ function AdminC({ watch, user, order }) {
       <section className="container_two">
         {order.map((card) => <UserCard key={card.id} oneCard={card} user={user} />)}
       </section>
-      <form action="/download" method="get">
-        <button type="submit">Download data</button>
+      <form action="/downloaduser" method="get">
+        <button type="submit">Download users</button>
+      </form>
+      <form action="/downloadorder" method="get">
+        <button type="submit">Download orders</button>
       </form>
       <script defer src="/js/application.js" />
       <script defer src="/js/additem.js" />
